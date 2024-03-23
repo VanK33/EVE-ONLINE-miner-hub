@@ -51,6 +51,11 @@ The design language is trying to keep a minimalistic style with mild animations
 <p align="center">
   <img src="./mockup/database.png" alt="Database design">
 </p>
+Note:
+ore type: Abyssal, Mercoxit, Complex, Variegated, Coherent, Simple
+moon types [enum]: R64, R32, R16, R8, R4
+<!-- ice types: -->
+<!-- gas types: -->
 
 ### ENDPOINTS
 
