@@ -27,7 +27,7 @@ The project is designed with responsiveness in mind. The goal is to ensure users
 
 ### Tech Stack
 
-- React + Vite
+- React + Next.js
 - TypeScript
 - Tailwind CSS
 - Express
@@ -55,6 +55,9 @@ The project is designed with responsiveness in mind. The goal is to ensure users
 <p align="center">
   <img src="./assets/mockup/alt-management-page.png" alt="Landing Page - Alt Management">
 </p>
+Note: Each user will be linked to various characters, the primary character will always occupied the first slot, followed by other characters. <Br>
+
+Click on the plus sign will send `POST` request of "alt" enum - refer to [Endpoints](#endpoints)
 
 ### WORK FLOW
 
@@ -62,15 +65,19 @@ The project is designed with responsiveness in mind. The goal is to ensure users
   <img src="./assets/mockup/high-level-overview.png" alt="High Level Work Flow">
 </p>
 
+Note: Two distinct `POST` requests for enum types - refer to [Endpoints](#endpoints)
+
 ### DATABASE DESIGN
 
 <p align="center">
   <img src="./assets/mockup/database.png" alt="Database design">
 </p>
 Note:
-ore class [enum]: Abyssal, Mercoxit, Complex, Variegated, Coherent, Simple
-moon class [enum]: R64, R32, R16, R8, R4
-type [enum]: ore, moon, ice, gas
+
+**Character role** [enum]: Primary, Alt <Br>
+**Ore class** [enum]: Abyssal, Mercoxit, Complex, Variegated, Coherent, Simple <Br>
+**Moon class** [enum]: R64, R32, R16, R8, R4 <Br>
+**All type** [enum]: ore, moon, ice, gas <Br>
 
 ### ENDPOINTS
 
@@ -85,21 +92,42 @@ type [enum]: ore, moon, ice, gas
 
 2. Method: `GET`
 
-   - Endpoints: `/:characterID/report
-   - Description: Retrieves all minable objects from the user with the corresponding characterID.
+   - Endpoint: `/api1/:characterID/report`
+   - Description: Passing characterID, find the userID associated with characterID and retrieves all minable objects from the user with the corresponding userID.
    - Response: JSON payload containing all ore data for the user within the last 12 months.
 
 3. Method: `GET`
-   - Endpoints: `/:characterID/report/recent
-   - Description: Retrieves ores mined within the last 30 days from the user with the corresponding characterID.
+
+   - Endpoint: `/api1/:characterID/report/recent`
+   - Description: Passing characterID, find the userID associated with characterID and retrieves ores mined within the last 30 days from the user with the corresponding userID.
    - Response: JSON payload containing all ore data from the user for the most recent 30 days.
+
+4. Method: `POST`
+
+   - Endpoint: `/api1/:characterID/primary`
+   - Description: Make a new character with role attribute of "primary". This request will mainly be used for landing page
+   - Response: JSON payload containing posted character
+
+5. Method: `POST`
+
+   - Endpoint: `/api1/:characterID/alts`
+   - Description: Make a new character with role attribute of "alt". This request will mainly be used for alt management page
+   - Response: JSON payload containing posted character
+
+6. Method: `PUT`
+   - Endpoint: `/api1/:characterID/make-primary`
+   - Description: Update role attribute for characterID to "primary", find the userID associated with this characterID, change the characterID with role attribute of "pirmary" to "alt"
+   - Response: JSON payload containing updated version of all characters associated with the userID that the characterID linked to
 
 ### NICE-TO-HAVE
 
 - Adding GET request to pull minable objects by type individually and draw charts for individual results
   - Ore, Ice, Cloud, Moon
 - Adding an overall profit per tick depending on the skills from individual characters, the mining ship configs, and type of minable objects (ore, ice, moon, gas)
+- Adding alt management page card drag and drop functionality for better customize displaying.
 
 ### CHALLENGES
 
-Since ESI token will expire after cetain period. How to reliably save, consistently, all historical data without asking user to regularly re-authorize to the site.
+- Since ESI token will expire after cetain period. How to reliably save, consistently, all historical data without asking user to regularly re-authorize to the site.
+
+- **Question: What will authorization return? Will it include character id? This will potentially impact how the backend is constructed.**
