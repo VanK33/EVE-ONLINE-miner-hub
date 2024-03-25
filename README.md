@@ -1,5 +1,7 @@
 # EVE Online Miner's Hub
 
+Welcome to the Client side of Miner's Hub. For more details on Server side, check out [here](#).
+
 ## Table of Content
 
 - [Project Description](#project-description)
@@ -74,12 +76,16 @@ Note: Two distinct `POST` requests for enum types - refer to [Endpoints](#endpoi
 </p>
 Note:
 
+`character_owner_hash` currently in character table is not attached to `user` table. This is intented to change/resolve in upcoming patches. See [Challenges](#challenges)
+
 **Character role** [enum]: Primary, Alt <Br>
 **Ore class** [enum]: Abyssal, Mercoxit, Complex, Variegated, Coherent, Simple <Br>
 **Moon class** [enum]: R64, R32, R16, R8, R4 <Br>
 **All type** [enum]: ore, moon, ice, gas <Br>
 
-### ENDPOINTS
+<Br>
+
+## ENDPOINTS
 
 **Cilent-side**
 
@@ -119,15 +125,25 @@ Note:
    - Description: Update role attribute for characterID to "primary", find the userID associated with this characterID, change the characterID with role attribute of "pirmary" to "alt"
    - Response: JSON payload containing updated version of all characters associated with the userID that the characterID linked to
 
-### NICE-TO-HAVE
+<Br>
+
+## NICE-TO-HAVE
 
 - Adding GET request to pull minable objects by type individually and draw charts for individual results
   - Ore, Ice, Cloud, Moon
 - Adding an overall profit per tick depending on the skills from individual characters, the mining ship configs, and type of minable objects (ore, ice, moon, gas)
 - Adding alt management page card drag and drop functionality for better customize displaying.
+- An additional `PUT` endpoint on server end to handle character transfer
+- More ...
 
-### CHALLENGES
+<Br>
+
+## CHALLENGES
 
 - Since ESI token will expire after cetain period. How to reliably save, consistently, all historical data without asking user to regularly re-authorize to the site.
 
 - **Question: What will authorization return? Will it include character id? This will potentially impact how the backend is constructed.**
+
+- **Database structure may need to refactor, user-characters link, depending on the answer from previous question.**
+
+## Acknowledgement
