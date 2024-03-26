@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import defaultLoginImage from "../../../assets/eve-auth/eve-sso-login-black-large.png";
 import Image from "next/image";
 import Avatar from "../Avatar/Avatar";
-// import handleLogin from "@/app/_utility/handleLogin";
+import handleAuth from "@/app/_utility/handleLogin";
 
 const AuthDisplay = () => {
   const [AuthState, setAuthState] = useState(false);
 
   const handleLogin = () => {
+    handleAuth();
     setAuthState(true);
   };
 

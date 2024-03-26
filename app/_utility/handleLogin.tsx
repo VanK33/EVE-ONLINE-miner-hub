@@ -1,5 +1,5 @@
 import generateSecureRandomString from "./generateSecureRandomString";
-function handleLogin() {
+function handleAuth() {
   // This function is used to handle the login process
   // It will redirect the user to the ESI login page
   // The SSO login page will redirect the user back to the callback page
@@ -14,7 +14,7 @@ function handleLogin() {
   );
   const scope = encodeURIComponent("esi-industry.read_character_mining.v1");
   const state = generateSecureRandomString(16);
-  window.location.href = "http://localhost:3000/api/auth/login";
+  window.location.href = `${baseURL}?response_type=${responseType}&redirect_uri=${redirectURL}&client_id=${clientId}&scope=${scope}&state=${state}`;
 }
 
-export default handleLogin;
+export default handleAuth;
