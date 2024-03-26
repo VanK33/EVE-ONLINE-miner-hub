@@ -98,13 +98,13 @@ Note:
 
 2. Method: `GET`
 
-   - Endpoint: `/api1/:characterID/report`
+   - Endpoint: `/api1/:characterID/user-report`
    - Description: Passing characterID, find the userID associated with characterID and retrieves all minable objects from the user with the corresponding userID.
    - Response: JSON payload containing all ore data for the user within the last 12 months.
 
 3. Method: `GET`
 
-   - Endpoint: `/api1/:characterID/report/recent`
+   - Endpoint: `/api1/:characterID/user-report/recent`
    - Description: Passing characterID, find the userID associated with characterID and retrieves ores mined within the last 30 days from the user with the corresponding userID.
    - Response: JSON payload containing all ore data from the user for the most recent 30 days.
 
@@ -121,9 +121,22 @@ Note:
    - Response: JSON payload containing posted character
 
 6. Method: `PUT`
+
    - Endpoint: `/api1/:characterID/make-primary`
    - Description: Update role attribute for characterID to "primary", find the userID associated with this characterID, change the characterID with role attribute of "pirmary" to "alt"
    - Response: JSON payload containing updated version of all characters associated with the userID that the characterID linked to
+
+7. Method: `GET`
+
+   - Endpoint: `/api1/:characterID/report`
+   - Description: retrieves all minable objects from the character with the corresponding characterID.
+   - Response: JSON payload containing all ore data for the character within the last 12 months.
+
+8. Method: `GET`
+
+   - Endpoint: `/api1/:characterID/report/recent`
+   - Description: Retrieves ores mined within the last 30 days from the character with the corresponding characterID.
+   - Response: JSON payload containing all ore data from the character for the most recent 30 days.
 
 <Br>
 
@@ -147,3 +160,5 @@ Note:
 - **Database structure may need to refactor, user-characters link, depending on the answer from previous question.**
 
 ## Acknowledgement
+
+[Return to Top](#eve-online-miners-hub)
