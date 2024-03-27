@@ -151,6 +151,8 @@ Note:
 
 <Br>
 
+## KEY LEARNINGS
+
 ## CHALLENGES
 
 - Since ESI token will expire after cetain period. How to reliably save, consistently, all historical data without asking user to regularly re-authorize to the site.
