@@ -1,6 +1,6 @@
 # EVE Online Miner's Hub
 
-Welcome to the Client side of Miner's Hub. For more details on Server side, check out [here](#).
+Welcome to the Client side of Miner's Hub. For more details on Server side, check out [here](https://github.com/VanK33/miner-hub-server).
 
 ## Table of Content
 
@@ -17,7 +17,7 @@ Welcome to the Client side of Miner's Hub. For more details on Server side, chec
 
 ## Project Description
 
-This project serves as a data visualization tool for miners in EVE Online to keep track of their past mining history. The breakdown includes the type of ores mined and when these ores were mined. Currently, the back-end repo is not initiated, and all server-related writeups will be documented in this repo, and ultimately migrate to its own place.
+This project serves as a data visualization tool for miners in EVE Online to keep track of their past mining history. The breakdown includes the type of ores mined and when these ores were mined. The client side will be responsible for interacting with potential users, and provide visualization on the mining records
 
 ### Motivations
 
