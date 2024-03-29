@@ -16,10 +16,10 @@ const AuthDisplay = () => {
     }
   }, []);
 
-  // This function is used to handle the login process
   const handleLogin = () => {
     handleAuth();
   };
+
   return (
     // This component is used to display the login button if the user is not logged in
     <div>
