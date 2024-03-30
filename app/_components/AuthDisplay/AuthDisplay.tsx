@@ -16,10 +16,6 @@ const AuthDisplay = () => {
     }
   }, []);
 
-  const handleLogin = () => {
-    handleAuth();
-  };
-
   return (
     // This component is used to display the login button if the user is not logged in
     <div>
@@ -34,7 +30,7 @@ const AuthDisplay = () => {
         <Image
           src={defaultLoginImage}
           alt="EVE Online SSO Login"
-          onClick={handleLogin}
+          onClick={handleAuth}
         />
       )}
     </div>
