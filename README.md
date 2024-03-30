@@ -155,7 +155,7 @@ Note:
 
 ## CHALLENGES
 
-A list of up to date challenges can be viewed [here](/CHALLENGES.md)
+A list of up to date challenges can be viewed [here](/docs/CHALLENGES.md)
 
 ## Acknowledgement
 
